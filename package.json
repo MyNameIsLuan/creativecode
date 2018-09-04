@@ -1,1 +1,16 @@
-
+{
+  "name": "Nome",
+  "version": "1.0.0",
+  "description": "-",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Criador",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.3.0",
+    "fs": "0.0.1-security",
+    "dateformat": "^3.0.3",
+  }
+}
