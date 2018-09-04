@@ -67,20 +67,5 @@ client.on('message', message =>{
     message.channel.send(`${message.author}, não divulgue links de outros servidores!`)
   }
 });
-client.on('message', message => {
-    message.channels.get("480833829297455120").send(`**Precisa de suporte?**
-    Caso precise, clique em uma reação de uma determinada linguagem!!
-    
-    :java: **- JAVA**
-    :javascript **- JAVASCRIPT**
-    :kotlin: **- KOTLIN**
-    :jda: **- JDA**
-    :python: **DISCORD.PY**
-    :desktop: **PYTHON**`)
-
-});
-
-
-
 
 client.login(process.env.TokenBOT);
