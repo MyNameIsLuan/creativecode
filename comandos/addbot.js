@@ -19,7 +19,7 @@ module.exports.run = async (client, message, args) => {
         **Invite (gerado automaticamente)**: https://discordapp.com/api/oauth2/authorize?client_id=${id}&permissions=0&scope=bot`)
         .setTimestamp()
 
-    message.guild.channels.get("486366889031892994").send(addbot)
+    message.guild.channels.get("486553329535811613").send(addbot)
     message.channel.send(`:white_check_mark: **|** ${message.author} seu bot está na lista de espera!`)
 
 }
