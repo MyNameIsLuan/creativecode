@@ -32,40 +32,65 @@ var prefix = "!";
 
 ;
 
-client.on("message", message => {
-  if (message.author.bot) return;
-  if (!message.content.startsWith(config.prefix)) return;
+client.on("message", message => { 
+  	if(message.author.bot) return;
+  	if(!message.content.startsWith(config.prefix)) return;
  
-  let command = message.content.split(" ")[0];
-  command = command.slice(config.prefix.length);
+  	let command = message.content.split(" ")[0];
+  	command = command.slice(config.prefix.length);
  
-  let args = message.content.split(" ").slice(1);
-  // The list of if/else is replaced with those simple 2 lines:
+	let args = message.content.split(" ").slice(1);
  
-  try {
-    let commandFile = require(`./comandos/${command}.js`);
-    commandFile.run(client, message, args);
-  } catch (err) {
-    console.error(err);
-  }
+  	try {
+    		let commandFile = require(`./comandos/${command}.js`);
+    		commandFile.run(client, message, args);
+  	} catch (err) {
+    		console.error(err);
+  	}
  
 });
+
 client.on("ready", () => {
-
-    console.log(`BOT ON!`); 
-
+    console.log(`\nBot iniciado com sucesso!`); 
 })
+
+client.on("guildMemberAdd", member => { // MSG DE BEM-VINDO
+	 const entrou = new Discord.RichEmbed()
+              .setTitle(`Bem-vindo(a)`)
+              .setDescription(`**__${member.user.username}__** entrou no servidor.`)
+              .setThumbnail(member.user.avatarURL)
+              .setColor("#faaf05")
+              .setTimestamp()
+
+         //let role = member.guild.roles.get("430495434172137502")
+
+         member.addRole('486556508776300555') 
+         member.guild.channels.get("480833249635991572").send(entrou)
+});
+
+client.on("guildMemberRemove", member => { // MSG DE SAIDA
+	 const saiu = new Discord.RichEmbed()
+              .setTitle(`Tchau`)
+              .setDescription(`**__${member.user.username}__** saiu do servidor.`)
+              .setThumbnail(member.user.avatarURL)
+              .setTimestamp()
+
+         //let role = member.guild.roles.get("430495434172137502")
+
+         member.guild.channels.get("480833249635991572").send(saiu)
+});
+
 client.on('message', message =>{
-  if(message.content.includes("https://discord.gg/")){
-      message.delete()
-    message.channel.send(`${message.author}, não divulgue links de outros servidores!`)
-  }
+  	if(message.content.includes("https://discord.gg/")){
+      		message.delete()
+    		message.channel.send(`${message.author}, não divulgue links de outros servidores!`)
+  	}
 });
 client.on('message', message =>{
-  if(message.content.includes("https://discord.me/")){
-      message.delete()
-    message.channel.send(`${message.author}, não divulgue links de outros servidores!`)
-  }
+  	if(message.content.includes("https://discord.me/")){
+      		message.delete()
+    		message.channel.send(`${message.author}, não divulgue links de outros servidores!`)
+  	}
 });
 
 client.login(process.env.TokenBOT);
