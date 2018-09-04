@@ -81,10 +81,19 @@ client.on("guildMemberRemove", member => { // MSG DE SAIDA
 });
 
 client.on('message', message =>{
+	if(message.content.startsWith("nerd dlc")) {
+		message.channel.send(`Sim, verdade.`)
+	}
   	if(message.content.includes("https://discord.gg/")){
       		message.delete()
     		message.channel.send(`${message.author}, não divulgue links de outros servidores!`)
   	}
+	
+	  	if(message.content.includes("https://discord.gg/")){
+      		message.delete()
+    		message.channel.send(`${message.author}, não divulgue links de outros servidores!`)
+  	}
+	
 });
 client.on('message', message =>{
   	if(message.content.includes("https://discord.me/")){
