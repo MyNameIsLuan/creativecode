@@ -55,7 +55,7 @@ client.on("ready", () => {
 });
 
 client.on('ready', () => {
-    client.channels.get("480833829297455120").bulkDelete("1")
+    client.channels.get("480833829297455120").bulkDelete("1");
     client.guilds.get('480829604035166220').channels.get('480833829297455120').send(`**Precisa de suporte?**
     Caso precise, clique em uma reação de uma determinada linguagem!!
     
@@ -66,6 +66,39 @@ client.on('ready', () => {
     <:python:486541788283273246> **- DISCORD.py**
     :desktop: **PYTHON**`)
 
+});
+
+client.on('messageReactionAdd', (reaction, user) => {
+  let java = bot.guilds.get('480829604035166220').emojis.find("name", "java");
+  if(reaction.emoji.id === java.id && user.id !== bot.user.id) {
+    reaction.remove(user);
+    bot.guilds.get('469674925192380417').members.get(user.id).addRole('485819107699326996');
+  }
+  let js = bot.guilds.get('480829604035166220').emojis.find("name", "javascript");	
+  else if(reaction.emoji.id === js.id && user.id !== bot.user.id) {
+    reaction.remove(user);
+    bot.guilds.get('469674925192380417').members.get(user.id).addRole('485818741133672468');
+  }
+  let dcpy = bot.guilds.get('480829604035166220').emojis.find("name", "python");
+  else if(reaction.emoji.id === py.id && user.id !== bot.user.id) {
+    reaction.remove(user);
+    bot.guilds.get('469674925192380417').members.get(user.id).addRole('485818795873665024');
+  }
+  let kotlin = bot.guilds.get('480829604035166220').emojis.find("name", "kotlin");
+  else if(reaction.emoji.id === kotlin.id && user.id !== bot.user.id) {
+    reaction.remove(user);
+    bot.guilds.get('469674925192380417').members.get(user.id).addRole('485818891726225408');
+  }
+  let jda = bot.guilds.get('480829604035166220').emojis.find("name", "jda");
+  else if(reaction.emoji.id === jda.id && user.id !== bot.user.id) {
+    reaction.remove(user);
+    bot.guilds.get('469674925192380417').members.get(user.id).addRole('485819059804307456');
+  }
+  else if(reaction.emoji.name === ":computer:" && user.id !== bot.user.id) {
+    reaction.remove(user);
+    bot.guilds.get('469674925192380417').members.get(user.id).addRole('485818839146299392');
+  }
+	
 });
 
 client.on("guildMemberAdd", member => { // MSG DE BEM-VINDO
