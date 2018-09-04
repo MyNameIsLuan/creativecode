@@ -1,12 +1,12 @@
 {
-  "name": "Nome",
+  "name": "creativecodebot",
   "version": "1.0.0",
   "description": "-",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
-  "author": "Criador",
+  "author": "none",
   "license": "MIT",
   "dependencies": {
     "discord.js": "^11.3.0",
